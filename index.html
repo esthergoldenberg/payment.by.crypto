@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crypto Payment</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+.card {
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.address {
+  word-break: break-all;
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #ff4d88;
+  color: #fff;
+  font-size: 15px;
+}
+.note {
+  font-size: 12px;
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+<h1>Crypto Payment</h1>
+
+<div class="card">
+  <h2>USDT (TRC20)</h2>
+  <div class="address" id="usdt">ВСТАВЬ_АДРЕС_USDT_TRC20</div>
+  <button onclick="copy('usdt')">Copy address</button>
+  <div class="note">Send only via TRC20 network</div>
+</div>
+
+<div class="card">
+  <h2>BTC</h2>
+  <div class="address" id="btc">ВСТАВЬ_АДРЕС_BTC</div>
+  <button onclick="copy('btc')">Copy address</button>
+</div>
+
+<p class="note">
+Network fee paid by sender.<br>
+After payment please send TXID or screenshot.
+</p>
+
+<script>
+function copy(id) {
+  navigator.clipboard.writeText(
+    document.getElementById(id).innerText
+  );
+  alert("Address copied");
+}
+</script>
+
+</body>
+</html>

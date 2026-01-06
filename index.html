@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Crypto Payment</title>
+<title>Crypto Details</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
 body {
   font-family: Arial, sans-serif;
   background: #0f0f0f;
-  color: #fff;
-  max-width: 500px;
+  color: #ffffff;
+  max-width: 520px;
   margin: auto;
   padding: 20px;
+}
+h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
 }
 .card {
   background: #1c1c1c;
@@ -20,8 +24,8 @@ body {
   margin-bottom: 15px;
 }
 h2 {
+  font-size: 16px;
   margin: 0 0 10px;
-  font-size: 18px;
 }
 .address {
   word-break: break-all;
@@ -39,41 +43,69 @@ button {
   background: #ff4d88;
   color: #fff;
   font-size: 15px;
+  cursor: pointer;
 }
 .note {
   font-size: 12px;
   opacity: 0.7;
+  margin-top: 6px;
+}
+.footer {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 20px;
 }
 </style>
 </head>
 <body>
 
-<h1>Crypto Payment</h1>
+<h1>Crypto Transfer Details</h1>
 
 <div class="card">
-  <h2>USDT (TRC20)</h2>
-  <div class="address" id="usdt">ВСТАВЬ_АДРЕС_USDT_TRC20</div>
-  <button onclick="copy('usdt')">Copy address</button>
-  <div class="note">Send only via TRC20 network</div>
+  <h2>USDT — TRON (TRC20)</h2>
+  <div class="address" id="usdt_trc20">
+    TJPQBgTNkygEXoSWHZYAjGqTzrVFuj9Kw2
+  </div>
+  <button onclick="copy('usdt_trc20')">Copy address</button>
+  <div class="note">Send ONLY via TRC20 network</div>
 </div>
 
 <div class="card">
-  <h2>BTC</h2>
-  <div class="address" id="btc">ВСТАВЬ_АДРЕС_BTC</div>
+  <h2>USDT — BSC (BEP20)</h2>
+  <div class="address" id="usdt_bep20">
+    0xb582e275e255be7e8361f32658b09a78faf56e67
+  </div>
+  <button onclick="copy('usdt_bep20')">Copy address</button>
+  <div class="note">Send ONLY via BEP20 (BSC)</div>
+</div>
+
+<div class="card">
+  <h2>USDT — TON</h2>
+  <div class="address" id="usdt_ton">
+    UQAqstqFT7M0vvypgP4S3H8FvIE-5ZNU26AAEQmwWYBuRIA0
+  </div>
+  <button onclick="copy('usdt_ton')">Copy address</button>
+  <div class="note">TON network only</div>
+</div>
+
+<div class="card">
+  <h2>Bitcoin (BTC)</h2>
+  <div class="address" id="btc">
+    1Ms3kQPc9t3cfXfEre9ubKamdNSWiCuUk3
+  </div>
   <button onclick="copy('btc')">Copy address</button>
 </div>
 
-<p class="note">
-Network fee paid by sender.<br>
-After payment please send TXID or screenshot.
-</p>
+<div class="footer">
+  Network fee is paid by sender.<br>
+  Wrong network = loss of funds.<br>
+  After transfer, please send TXID or screenshot.
+</div>
 
 <script>
 function copy(id) {
-  navigator.clipboard.writeText(
-    document.getElementById(id).innerText
-  );
-  alert("Address copied");
+  const text = document.getElementById(id).innerText.trim();
+  navigator.clipboard.writeText(text);
 }
 </script>
 
